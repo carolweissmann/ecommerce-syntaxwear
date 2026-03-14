@@ -1,14 +1,14 @@
 /* hero.css */
-.hero { 
+.hero{ 
   background: url(../../imagem/banners/hero.jpg) no-repeat center;
   background-size: cover;
   height: 500px;
-  display: flex; /* Substitui a necessidade da overlay se não for usar filtros */
+  display: flex;
   align-items: center;
-  justify-content: flex-end; /* Joga o conteúdo para a direita */
-  padding: 0 10%; /* Padding responsivo */
-  border-radius: 20px; /* Notei que a imagem tem bordas arredondadas no banner */
-  margin: 20px; /* Para não encostar nas bordas da tela */
+  justify-content: flex-end;
+  padding: 0 10%; 
+  border-radius: 20px;
+  margin: 20px; 
 }
 .hero-overlay {
   width: 100%;
