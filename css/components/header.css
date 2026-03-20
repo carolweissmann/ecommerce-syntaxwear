@@ -1,78 +1,158 @@
 .header {
-  
   position: fixed;
-  top: 60px;
-  left: 50%;
-  transform: translate(-50%);
-  width: calc(100% - 210px);
-  border-radius: 16px;
-  z-index: 999;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - 80px);
+  max-width: 1200px;
+  border-radius: 50px;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.225rem 1.25rem;
+  padding: 0.75rem 2rem;
   background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  flex-shrink: 0;
 }
 
 .logo img {
-  height: 48px;
-  width: 150px;
+  height: 35px;
+  width: auto;
+  display: block;
 }
 
-.nav-center ul {
+/* Container de navegação para Desktop */
+.nav-container {
   display: flex;
-  gap: 2.5rem;
-}
-
-.nav-center a, .nav-right a {
-    font-size: 1.125rem;
-    color: #333333;
-}
-
-.nav-center a:hover, .nav-right a:hover {
-    font-size: 1.125rem;
-    color: #7c3aed;   
-}
-
-.nav-right ul {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-.nav img{
-    height: 20px;
-}
-
-.nav-right a:hover img{
-    opacity: 0.7;
-}
-.logo {
+  justify-content: space-between;
+  align-items: center;
   flex: 1;
+  margin-left: 3rem;
 }
 
-.nav-center {
-  flex: 2;
+.nav-center ul, .nav-menu-icons ul {
   display: flex;
-  justify-content: center;
-}
-
-.nav-menu-icons {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.nav-menu-icons ul {
-  display: flex;
+  list-style: none;
   gap: 2.5rem;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
-.nav-menu-icons a {
-  font-size: 1.125rem;
+.nav-center a, .nav-menu-icons a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav-center a:hover, .nav-menu-icons a:hover {
+  color: #7c3aed;
 }
 
 .nav-menu-icons img {
-  height: 24px;
+  width: 22px;
+  height: 22px;
   vertical-align: middle;
+}
+
+/* Esconde o hambúrguer no desktop */
+.menu-toggle, .menu-icon {
+  display: none;
+}
+
+/* --- MOBILE --- */
+
+@media (max-width: 992px) {
+  .header {
+    width: calc(100% - 40px);
+    top: 20px;
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Exibe o hambúrguer no mobile */
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .menu-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Transforma o container no Menu Lateral */
+  .nav-container {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    width: 260px;
+    height: auto;
+    max-height: 80vh;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+    margin: 0;
+    
+    /* Escondido */
+    transform: translateX(150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1050;
+    overflow-y: auto;
+  }
+
+  /* Quando clica no hambúrguer */
+  .menu-toggle:checked ~ .nav-container {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Listas em coluna no mobile */
+  .nav-center ul, .nav-menu-icons ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .nav-center a {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .nav-menu-icons a {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-menu-icons img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Divisória interna */
+  .nav-menu-icons {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    width: 85%;
+  }
 }
