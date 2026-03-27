@@ -75,4 +75,4 @@ O site foi desenvolvido com foco em performance e organização de código, util
 Este projeto foi desenvolvido para fins de portfólio e estudo.
 
 ---
-*Desenvolvido por SyntaxWear Team.*
+*Desenvolvido por Caroline Weissmann.*
